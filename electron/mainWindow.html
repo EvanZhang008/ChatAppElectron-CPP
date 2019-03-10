@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chattie</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-secondary bg-secondary">
+      <a class="navbar-brand" href="#">Navbar</a>
+    </nav>
+    <div class="container">
+      <div class="chatbody">
+        <ul class="collection list-group">
+          <li class="collection-item list-group-item myText">
+            <span class="text">
+              asdasdasdasdasdasdasdasdasdas
+            </span>
+            <span class="ip">Client:1 192.168.0..1</span>
+          </li>
+        </ul>
+      </div>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          id="inputMsg"
+          placeholder="Enter..."
+          aria-label="Enter..."
+          aria-describedby="button-addon2"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+          >
+            Send
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      const electron = require("electron");
+      const { ipcRenderer } = electron;
+
+      document.querySelector("#button-addon2").onclick = function() {
+        let inputValue = document.querySelector("#inputMsg").value;
+        console.log(inputValue);
+        let template = `          
+      <li class="collection-item list-group-item myText">
+            <span class="text">
+              ${inputValue}
+            </span>
+            <span class="ip">ME</span>
+          </li>`;
+        document
+          .querySelector(".collection")
+          .insertAdjacentHTML("beforeend", template);
+        ipcRenderer.send("input", inputValue);
+      };
+      function myFunction() {
+        console.log("click myfun");
+      }
+      ipcRenderer.on("update", (e, item) => {
+        let template = `          
+      <li class="collection-item list-group-item">
+            <span class="text">
+              ${item[2]}
+            </span>
+            <span class="ip">Client${item[0]} ${item[1]}</span>
+          </li>`;
+        document
+          .querySelector(".collection")
+          .insertAdjacentHTML("beforeend", template);
+        console.log("asdasd", item);
+      });
+    </script>
+  </body>
+</html>

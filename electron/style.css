@@ -1,0 +1,42 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+.container {
+  width: 60vw;
+  height: 80vh;
+  margin: auto;
+
+  /* background-color: red; */
+}
+.chatbody {
+  height: 80vh;
+  overflow: auto;
+}
+.collection {
+  height: auto;
+}
+.collection-item,
+.text,
+.ip {
+  min-height: 1.5rem;
+  /* overflow: auto; */
+}
+.collection-item {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  align-items: center;
+}
+.text {
+  word-wrap: break-word;
+}
+.ip {
+  font-size: 0.8rem;
+  color: gray;
+
+  text-align: right;
+}
+.myText {
+  background-color: lightskyblue;
+}

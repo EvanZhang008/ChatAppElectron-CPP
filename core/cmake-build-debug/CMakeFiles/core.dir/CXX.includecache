@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/ziqianzhang/Google Drive/BCIT/Level4/4981/Assignment3/code/core/server.cpp
+stdio.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+netinet/in.h
+-
+stdlib.h
+-
+strings.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+iostream
+-
+

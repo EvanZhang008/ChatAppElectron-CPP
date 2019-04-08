@@ -25,7 +25,7 @@
 #include "client.h"
 #include <string.h>
 #include <iostream>
-
+#include <cstring>
 using namespace std;
 
 /*---------------------------------------------------------------------------------------

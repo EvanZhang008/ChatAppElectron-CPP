@@ -7,12 +7,12 @@
 
 using namespace std;
 
-int main (int argc, char **argv)
+int main(int argc, char **argv)
 {
-    cout<<argv[0];
-    cout<<argv[1];
-    if(strcmp(argv[1],"server")==0)
-        enterServer ();
+    cout << argv[0];
+    cout << argv[1];
+    if (strcmp(argv[1], "server") == 0)
+        enterServer();
     else
-        enterClient((char*)"127.0.0.1");
+        enterClient(argv[1]);
 }
